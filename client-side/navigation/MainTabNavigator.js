@@ -3,58 +3,72 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import FunScreen from '../screens/FunScreen';
+import ExploreScreen from '../screens/ExploreScreen';
+import SportScreen from '../screens/SportScreen';
+import HelpScreen from '../screens/HelpScreen';
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+const FunStack = createStackNavigator({
+  Fun: FunScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+FunStack.navigationOptions = {
+  tabBarLabel: 'Fun',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
+      name={Platform.OS === 'ios' ? 'ios-happy' : 'md-happy'}
     />
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const ExploreStack = createStackNavigator({
+  Explore: ExploreScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+ExploreStack.navigationOptions = {
+  tabBarLabel: 'Explore',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-search' : 'md-search'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
+const SportStack = createStackNavigator({
+  Sport: SportScreen,
+})
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+SportStack.navigationOptions = {
+  tabBarLabel: 'Sport',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-speedometer' : 'md-speedometer'}
     />
   ),
 };
+
+const HelpStack = createStackNavigator({
+  Help: HelpScreen,
+});
+
+HelpStack.navigationOptions = {
+  tabBarLabel: 'Help',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'}
+    />
+  ),
+};
+
+
 
 export default createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+  FunStack,
+  ExploreStack,
+  SportStack,
+  HelpStack,
 });
