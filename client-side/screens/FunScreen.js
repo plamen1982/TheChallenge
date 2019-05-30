@@ -1,21 +1,12 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
 
-import { MonoText } from '../components/StyledText';
-
-export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    header: null,
-  };
+export default class FunScreen extends React.Component {
 
   render() {
     return (
@@ -35,7 +26,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-
   contentContainer: {
     paddingTop: 30,
   },

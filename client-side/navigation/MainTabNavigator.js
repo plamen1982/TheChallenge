@@ -17,11 +17,7 @@ FunStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? 'ios-happy'
-          : 'md-happy'
-      }
+      name={Platform.OS === 'ios' ? 'ios-happy' : 'md-happy'}
     />
   ),
 };
