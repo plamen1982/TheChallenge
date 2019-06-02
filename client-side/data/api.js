@@ -6,7 +6,8 @@
  */
 const requester = method => {
     const getAuthHeader = () => {
-        const token = window.localStorage.getItem("auth_token");
+        // const token = window.localStorage.getItem("auth_token");
+        const token = '';
         return (token && token.length) 
                 ? { "Authorization": `Bearer ${token}` }
                 : {}
@@ -20,7 +21,7 @@ const requester = method => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                ...authHeader
+                // ...authHeader
             },
             body: JSON.stringify(data),
             ...options,
@@ -44,11 +45,7 @@ export const get = requester("get");
  * @param {Object} data
  * @param {Object} options
  * @returns {Promise} with the data from the api at this url
- * @example post('http://localhost:5000/device/all', {  model: "Samsung galaxy S8",
-                                                        typeDevice: "phone",
-                                                        description: "PoweredTest by the Exynos 8890 SoC, this phone can blaze through absolutely anything you throw at it, with power to spare. The camera is absolutely amazing, especially in low light.",
-                                                        price: 300,
-                                                        image: "https://via.placeholder.com/150" });
+
  */
 export const post = requester("post");
 
@@ -58,7 +55,6 @@ export const post = requester("post");
  * @param {Object} data
  * @param {Object} options
  * @returns {Promise} with the data from the api at this url
- * @example put('http://localhost:5000/device/edit/:id', { image: "https://via.placeholder.com/300" });
  */
 export const put = requester("put");
 
@@ -67,6 +63,5 @@ export const put = requester("put");
  * @param {String} url
  * @param {Object} options
  * @returns {Promise} with the data from the api at this url
- * @example remove('http://localhost:5000/device/delete/:id');
  */
 export const remove = requester("delete");
