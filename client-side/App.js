@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import * as firebase from 'firebase';
 
 export default class App extends React.Component {
   state = {
@@ -52,6 +53,19 @@ export default class App extends React.Component {
   _handleFinishLoading = () => {
     this.setState({ isLoadingComplete: true });
   };
+
+  componentWillMount() {
+  // Initialize Firebase
+    const config = {
+      apiKey: 'AIzaSyDVLffdyGqlMeT1O-fAXXoPSWySowDRalo',
+      authDomain: 'manager-140f5.firebaseapp.com',
+      databaseURL: 'https://manager-140f5.firebaseio.com',
+      projectId: 'manager-140f5',
+      storageBucket: 'manager-140f5.appspot.com',
+      messagingSenderId: '1024908524621'
+    };
+    firebase.initializeApp(config);
+  }
 }
 
 const styles = StyleSheet.create({

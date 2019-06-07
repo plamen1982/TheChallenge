@@ -44,6 +44,7 @@ export default class ExploreScreen extends React.PureComponent {
     async componentDidMount() {
       try {
         const dataSource = await ExploreScreen.userService.getAllUsers();
+        console.log(dataSource)
         this.setState({
           dataSource,
           loading: false

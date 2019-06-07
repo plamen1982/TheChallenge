@@ -35,7 +35,6 @@ const requester = method => {
  * @param {String} url
  * @param {Object} options
  * @returns {Promise} with the data from the api at this url
- * @example get('http://localhost:5000/device/all');
  */
 export const get = requester("get");
 
